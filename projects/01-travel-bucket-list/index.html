@@ -90,7 +90,20 @@
       width: 100%;
       height: 200px;
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background-size: cover;
+      background-position: center;
       object-fit: cover;
+      position: relative;
+    }
+
+    .card-image::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.2);
     }
 
     .card-content {
@@ -183,77 +196,231 @@
   <script>
     // Travel data
     const travels = [
+      // BEEN - USA
       {
         id: 1,
-        place: "Buenos Aires",
-        country: "Argentina",
-        why: "Usuaia at the end of the world, asado, empanadas and alfajores",
-        status: "dreaming",
-        color: "#c084fc"
+        place: "Boston",
+        country: "USA",
+        flag: "🇺🇸",
+        why: "Historic landmarks, seafood, and autumn leaves",
+        status: "been",
+        color: "#f59e0b",
+        image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?w=400&h=300&fit=crop"
       },
       {
         id: 2,
-        place: "Tokyo",
-        country: "Japan",
-        why: "Cherry blossoms, street food, and neon nights",
-        status: "dreaming",
-        color: "#f472b6"
+        place: "Miami",
+        country: "USA",
+        flag: "🇺🇸",
+        why: "Art Deco architecture, beaches, and vibrant nightlife",
+        status: "been",
+        color: "#fcd34d",
+        image: "https://images.unsplash.com/photo-1533050487297-86d59d773fdf?w=400&h=300&fit=crop"
       },
       {
         id: 3,
-        place: "Paris",
-        country: "France",
-        why: "Eiffel Tower, croissants, and romance",
-        status: "booked",
-        color: "#fb923c"
+        place: "Fort Lauderdale",
+        country: "USA",
+        flag: "🇺🇸",
+        why: "Beautiful beaches and waterfront charm",
+        status: "been",
+        color: "#f59e0b",
+        image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop"
       },
       {
         id: 4,
-        place: "Bali",
-        country: "Indonesia",
-        why: "Beaches, temples, and rice terraces",
+        place: "Rhode Island",
+        country: "USA",
+        flag: "🇺🇸",
+        why: "Coastal beauty and charming harbor towns",
         status: "been",
-        color: "#22d3ee"
+        color: "#fcd34d",
+        image: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=400&h=300&fit=crop"
       },
+      // BEEN - ITALY
       {
         id: 5,
-        place: "Barcelona",
-        country: "Spain",
-        why: "Gaudí architecture, tapas, and Mediterranean views",
+        place: "Rome",
+        country: "Italy",
+        flag: "🇮🇹",
+        why: "Ancient ruins, Vatican, and timeless romance",
         status: "been",
-        color: "#fbbf24"
+        color: "#fbbf24",
+        image: "https://images.unsplash.com/photo-1552832860-cfb67165eaf0?w=400&h=300&fit=crop"
       },
       {
         id: 6,
-        place: "Boston",
-        country: "USA",
-        why: "Historic landmarks, seafood, and autumn leaves",
+        place: "Florence",
+        country: "Italy",
+        flag: "🇮🇹",
+        why: "Renaissance art, Duomo, and Tuscan wine",
         status: "been",
-        color: "#f59e0b"
+        color: "#fbbf24",
+        image: "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=400&h=300&fit=crop"
       },
       {
         id: 7,
-        place: "Miami",
-        country: "USA",
-        why: "Art Deco architecture, beaches, and vibrant nightlife",
+        place: "Venice",
+        country: "Italy",
+        flag: "🇮🇹",
+        why: "Canals, gondolas, and magical waterways",
         status: "been",
-        color: "#fcd34d"
+        color: "#fbbf24",
+        image: "https://images.unsplash.com/photo-1514565131-fce0801e5785?w=400&h=300&fit=crop"
       },
       {
         id: 8,
-        place: "Fort Lauderdale",
-        country: "USA",
-        why: "Beautiful beaches and waterfront charm",
+        place: "Naples",
+        country: "Italy",
+        flag: "🇮🇹",
+        why: "Mount Vesuvius, pizza, and Mediterranean vibes",
         status: "been",
-        color: "#f59e0b"
+        color: "#fbbf24",
+        image: "https://images.unsplash.com/photo-1571407614925-e74e7a48ab3b?w=400&h=300&fit=crop"
       },
       {
         id: 9,
-        place: "Rhode Island",
-        country: "USA",
-        why: "Coastal beauty and charming harbor towns",
+        place: "Rimini",
+        country: "Italy",
+        flag: "🇮🇹",
+        why: "Adriatic beaches and lively seaside culture",
         status: "been",
-        color: "#fcd34d"
+        color: "#fbbf24",
+        image: "https://images.unsplash.com/photo-1470114716159-e389f8712fda?w=400&h=300&fit=crop"
+      },
+      // BEEN - GREECE
+      {
+        id: 10,
+        place: "Athens",
+        country: "Greece",
+        flag: "🇬🇷",
+        why: "Acropolis, ancient history, and Mediterranean sun",
+        status: "been",
+        color: "#22d3ee",
+        image: "https://images.unsplash.com/photo-1570677129905-56f89e68a238?w=400&h=300&fit=crop"
+      },
+      {
+        id: 11,
+        place: "Santorini",
+        country: "Greece",
+        flag: "🇬🇷",
+        why: "White-washed villages, sunsets, and Aegean views",
+        status: "been",
+        color: "#22d3ee",
+        image: "https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=400&h=300&fit=crop"
+      },
+      {
+        id: 12,
+        place: "Crete",
+        country: "Greece",
+        flag: "🇬🇷",
+        why: "Minoan ruins, gorges, and island paradise",
+        status: "been",
+        color: "#22d3ee",
+        image: "https://images.unsplash.com/photo-1522075782036-2e6904caf95f?w=400&h=300&fit=crop"
+      },
+      // BEEN - OTHER EUROPE
+      {
+        id: 13,
+        place: "Vienna",
+        country: "Austria",
+        flag: "🇦🇹",
+        why: "Imperial palaces, classical music, and Wiener schnitzel",
+        status: "been",
+        color: "#f97316",
+        image: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?w=400&h=300&fit=crop"
+      },
+      {
+        id: 14,
+        place: "San Marino",
+        country: "San Marino",
+        flag: "🇸🇲",
+        why: "Medieval fortress in the heart of Italy",
+        status: "been",
+        color: "#fb923c",
+        image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=400&h=300&fit=crop"
+      },
+      {
+        id: 15,
+        place: "Montenegro",
+        country: "Montenegro",
+        flag: "🇲🇪",
+        why: "Dramatic coastlines and Adriatic adventure",
+        status: "been",
+        color: "#f59e0b",
+        image: "https://images.unsplash.com/photo-1523959034155-a2a6dea1e6c5?w=400&h=300&fit=crop"
+      },
+      {
+        id: 16,
+        place: "Istanbul",
+        country: "Turkey",
+        flag: "🇹🇷",
+        why: "Where East meets West, bazaars and Blue Mosque",
+        status: "been",
+        color: "#f59e0b",
+        image: "https://images.unsplash.com/photo-1597827212624-fff3d77cd92d?w=400&h=300&fit=crop"
+      },
+      {
+        id: 17,
+        place: "Saint Petersburg",
+        country: "Russia",
+        flag: "🇷🇺",
+        why: "Winter palaces, canals, and imperial grandeur",
+        status: "been",
+        color: "#f97316",
+        image: "https://images.unsplash.com/photo-1580693944550-2173dba999ef?w=400&h=300&fit=crop"
+      },
+      // BEEN - MIDDLE EAST & AFRICA
+      {
+        id: 18,
+        place: "Dubai",
+        country: "UAE",
+        flag: "🇦🇪",
+        why: "Ultra-modern architecture and desert luxury",
+        status: "been",
+        color: "#fb923c",
+        image: "https://images.unsplash.com/photo-1512453475868-a34144e5a055?w=400&h=300&fit=crop"
+      },
+      {
+        id: 19,
+        place: "Sharm el-Sheikh",
+        country: "Egypt",
+        flag: "🇪🇬",
+        why: "Red Sea diving and resort paradise",
+        status: "been",
+        color: "#fbbf24",
+        image: "https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?w=400&h=300&fit=crop"
+      },
+      {
+        id: 20,
+        place: "Hurghada",
+        country: "Egypt",
+        flag: "🇪🇬",
+        why: "Crystal waters and coral reef adventures",
+        status: "been",
+        color: "#fbbf24",
+        image: "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=300&fit=crop"
+      },
+      {
+        id: 21,
+        place: "Mauritius",
+        country: "Mauritius",
+        flag: "🇲🇺",
+        why: "Tropical island paradise with turquoise lagoons",
+        status: "been",
+        color: "#f59e0b",
+        image: "https://images.unsplash.com/photo-1542259009477-d625272157b7?w=400&h=300&fit=crop"
+      },
+      // DREAMING
+      {
+        id: 22,
+        place: "Buenos Aires",
+        country: "Argentina",
+        flag: "🇦🇷",
+        why: "Usuaia at the end of the world, asado, empanadas and alfajores",
+        status: "dreaming",
+        color: "#c084fc",
+        image: "https://images.unsplash.com/photo-1534713143437-ff10e50f4f85?w=400&h=300&fit=crop"
       }
     ];
 
@@ -271,10 +438,10 @@
 
       grid.innerHTML = filtered.map(travel => `
         <div class="card">
-          <div class="card-image" style="background: linear-gradient(135deg, ${travel.color} 0%, ${travel.color}dd 100%);"></div>
+          <div class="card-image" style="background-image: url('${travel.image}'); background-size: cover; background-position: center;"></div>
           <div class="card-content">
             <h2 class="card-title">${travel.place}</h2>
-            <p style="color: #999; font-size: 0.9rem; margin-bottom: 0.8rem;">${travel.country}</p>
+            <p style="color: #999; font-size: 0.9rem; margin-bottom: 0.8rem;">${travel.flag} ${travel.country}</p>
             <p class="card-why">"${travel.why}"</p>
             <span class="card-status status-${travel.status}">
               ${travel.status.charAt(0).toUpperCase() + travel.status.slice(1)}
