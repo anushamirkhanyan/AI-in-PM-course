@@ -155,9 +155,27 @@
     }
 
     .entry-date {
-      color: #FFD700;
+      color: #003087;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .entry-source {
+      margin-top: 0.5rem;
+    }
+
+    .entry-source a {
+      color: #003087;
       font-size: 0.85rem;
       font-weight: 600;
+      text-decoration: none;
+      border-bottom: 1px dashed #003087;
+    }
+
+    .entry-source a:hover {
+      color: #FFD700;
+      background: #003087;
+      border-bottom-color: transparent;
     }
 
     .history-rotator {
@@ -260,6 +278,13 @@
     ];
 
     const entries = [
+      { id: 13, type: "incident", icon: "⚠️", title: "21 Air Flight 7598 Runway Overrun, Miami", aircraft: "Boeing 767-300F", authority: "NTSB", date: "2026-09-06", summary: "Amazon Prime Air cargo flight overran the runway on landing at Miami International Airport at roughly 130 mph after departing San Juan; at least 5 killed, 5 injured. Investigation ongoing.", source: "https://en.wikipedia.org/wiki/21_Air_Flight_7598" },
+      { id: 12, type: "ad", icon: "📋", title: "ATR 72 Cargo Compartment Ventilation Valve AD", aircraft: "ATR-GIE ATR72", authority: "FAA", date: "2026-09-18", summary: "Requires inspection of ventilation electrical shut-off valves that may fail to close during a Class E cargo compartment smoke event, risking fire reignition and propagation.", source: "https://www.federalregister.gov/documents/2026/09/03/2026-18053/airworthiness-directives-atr-gie-avions-de-transport-rgional-airplanes" },
+      { id: 11, type: "ad", icon: "📋", title: "Airbus A320 MLG Support Rib Lug Damage", aircraft: "Airbus A320 Family", authority: "FAA", date: "2026-09-18", summary: "Prompted by a production quality escape causing tool mark damage in main landing gear support rib 5 lug bores; requires inspection and rework where damage is found.", source: "https://www.federalregister.gov/documents/2026/09/03/2026-18052/airworthiness-directives-airbus-sas-airplanes" },
+      { id: 10, type: "ad", icon: "📋", title: "Rudder Drive Corrosion Inspection", aircraft: "Airbus Defence and Space GmbH Airplanes", authority: "FAA", date: "2026-09-15", summary: "Addresses reports of corrosion damage on the rudder drive; requires inspection and correction to prevent loss of rudder control function.", source: "https://www.federalregister.gov/documents/2026/09/15/2026-18850/airworthiness-directives-airbus-defence-and-space-gmbh-airplanes" },
+      { id: 9, type: "ad", icon: "📋", title: "AD 2026-0134 — A320 Family (Supersedes Emergency AD)", aircraft: "Airbus A320 Family", authority: "EASA", date: "2026-09-01", summary: "Supersedes Emergency Airworthiness Directive 2025-0268-E for the A320 family, updating inspection and compliance requirements.", source: "https://www.easa.europa.eu/en/newsroom-and-events/news/easa-issues-ad-2026-0134-superseding-emergency-airworthiness-directive-2025-0268-e-airbus-320-family" },
+      { id: 8, type: "incident", icon: "⚠️", title: "Cessna 210 Precautionary Landing, Kentucky", aircraft: "Cessna 210", authority: "NTSB", date: "2026-09-01", summary: "Made a precautionary emergency landing on Kentucky Route 109 near Dawson Springs after reported engine trouble; both occupants uninjured.", source: "https://avi-go.com/news/articles/aedcd252a5410ee54c67c587485456fc" },
+      { id: 7, type: "regulation", icon: "📜", title: "FAA Proposes Part 25 Certification Modernization", aircraft: "Transport Category Airplanes", authority: "FAA", date: "2026-06-26", summary: "NPRM would harmonize 27 differences between FAA Part 25 and EASA CS-25 Amendment 28 covering cabin/interior and propulsion control requirements, while removing SFAR 109.", source: "https://avweb.com/aviation-news/aviation-law/faa-proposes-part-25-certification-updates/" },
       { id: 1, type: "ad", icon: "📋", title: "CFM56-3C Engine Fan Blade Inspection", aircraft: "Boeing 737 Classic", authority: "FAA", date: "2025-02-15", summary: "Airworthiness Directive requires inspection of fan blade attachment pins within 500 flight hours or 18 months, whichever comes first. Effective immediately." },
       { id: 2, type: "incident", icon: "⚠️", title: "Turkish Airlines Flight Incident Investigation", aircraft: "Boeing 787-9", authority: "NTSB", date: "2025-02-10", summary: "Landing gear extension issues reported during approach to Istanbul. Structural investigation underway. No injuries reported." },
       { id: 3, type: "regulation", icon: "📜", title: "Part 21 Amendment — Certification Procedures", aircraft: "All GA Aircraft", authority: "FAA", date: "2025-02-05", summary: "New requirements for electric propulsion system certification. Effective immediately for new type certificate applications." },
@@ -283,8 +308,13 @@
       return matches.length > 0 ? matches[0] : aviationHistory[Math.floor(Math.random() * aviationHistory.length)];
     }
 
+    function sourceLink(e) {
+      return e.source ? `<p class="entry-source"><a href="${e.source}" target="_blank" rel="noopener">Source ↗</a></p>` : '';
+    }
+
     function renderBoard(filter = 'all') {
-      const filtered = filter === 'all' ? entries : entries.filter(e => e.type === filter);
+      const byDateDesc = (a, b) => new Date(b.date) - new Date(a.date);
+      const filtered = (filter === 'all' ? entries : entries.filter(e => e.type === filter)).slice().sort(byDateDesc);
 
       if (filtered.length === 0) {
         board.innerHTML = '<div class="empty-state" style="grid-column: 1/-1;"><p>No entries in this category yet.</p></div>';
@@ -308,6 +338,7 @@
               <p class="entry-authority">Authority: ${e.authority}</p>
               <p class="entry-summary">"${e.summary}"</p>
               <p class="entry-date">📅 ${e.date}</p>
+              ${sourceLink(e)}
             </div>
           `).join('');
         }
@@ -328,6 +359,7 @@
               <p class="entry-authority">Authority: ${e.authority}</p>
               <p class="entry-summary">"${e.summary}"</p>
               <p class="entry-date">📅 ${e.date}</p>
+              ${sourceLink(e)}
             </div>
           `).join('');
         }
@@ -348,6 +380,7 @@
               <p class="entry-authority">Authority: ${e.authority}</p>
               <p class="entry-summary">"${e.summary}"</p>
               <p class="entry-date">📅 ${e.date}</p>
+              ${sourceLink(e)}
             </div>
           `).join('');
         }
