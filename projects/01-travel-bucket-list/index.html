@@ -204,42 +204,30 @@
   </div>
 
   <script>
-    // Travel data with real city photos
     const travels = [
-      // BEEN - USA
-      { id: 1, place: "New York", country: "United States", flag: "USA", why: "Times Square, iconic skyline, endless energy", status: "been", emoji: "🗽", image: "https://source.unsplash.com/400x300/?newyork,city" },
-      { id: 2, place: "Boston", country: "United States", flag: "USA", why: "Historic landmarks, seafood, autumn leaves", status: "been", emoji: "🏛", image: "https://source.unsplash.com/400x300/?boston,city" },
-      { id: 3, place: "Miami", country: "United States", flag: "USA", why: "Art Deco, beaches, vibrant nightlife", status: "been", emoji: "🌴", image: "https://source.unsplash.com/400x300/?miami,beach" },
-      { id: 4, place: "Fort Lauderdale", country: "United States", flag: "USA", why: "Beautiful beaches and waterfront charm", status: "been", emoji: "🏖", image: "https://source.unsplash.com/400x300/?fortlauderdale,beach" },
-      { id: 5, place: "Rhode Island", country: "United States", flag: "USA", why: "Newport Mansions, coastal beauty, harbor towns", status: "been", emoji: "⛵", image: "https://source.unsplash.com/400x300/?newport,coast" },
-
-      // BEEN - ITALY
-      { id: 6, place: "Rome", country: "Italy", flag: "Italy", why: "Colosseum, Vatican, timeless romance", status: "been", emoji: "🏛", image: "https://source.unsplash.com/400x300/?rome,italy" },
-      { id: 7, place: "Florence", country: "Italy", flag: "Italy", why: "Renaissance art, Duomo, Tuscan wine", status: "been", emoji: "🎨", image: "https://source.unsplash.com/400x300/?florence,italy" },
-      { id: 8, place: "Venice", country: "Italy", flag: "Italy", why: "Grand Canal, gondolas, magical waterways", status: "been", emoji: "🚤", image: "https://source.unsplash.com/400x300/?venice,italy" },
-      { id: 9, place: "Naples", country: "Italy", flag: "Italy", why: "Vesuvius, pizza, Mediterranean vibes", status: "been", emoji: "🌋", image: "https://source.unsplash.com/400x300/?naples,italy" },
-      { id: 10, place: "Rimini", country: "Italy", flag: "Italy", why: "Adriatic beaches, lively seaside culture", status: "been", emoji: "🏖", image: "https://source.unsplash.com/400x300/?rimini,beach" },
-
-      // BEEN - GREECE
-      { id: 11, place: "Athens", country: "Greece", flag: "Greece", why: "Parthenon, ancient history, Mediterranean", status: "been", emoji: "⛩", image: "https://source.unsplash.com/400x300/?athens,greece" },
-      { id: 12, place: "Santorini", country: "Greece", flag: "Greece", why: "White villages, sunsets, Aegean views", status: "been", emoji: "🌅", image: "https://source.unsplash.com/400x300/?santorini,greece" },
-      { id: 13, place: "Crete", country: "Greece", flag: "Greece", why: "Minoan ruins, Samaria Gorge, island paradise", status: "been", emoji: "🏝", image: "https://source.unsplash.com/400x300/?crete,greece" },
-
-      // BEEN - OTHER EUROPE
-      { id: 14, place: "Vienna", country: "Austria", flag: "Austria", why: "Schonbrunn Palace, classical music, schnitzel", status: "been", emoji: "🎼", image: "https://source.unsplash.com/400x300/?vienna,austria" },
-      { id: 15, place: "San Marino", country: "San Marino", flag: "San Marino", why: "Medieval fortress surrounded by Italy", status: "been", emoji: "🏰", image: "https://source.unsplash.com/400x300/?sanmarino" },
-      { id: 16, place: "Montenegro", country: "Montenegro", flag: "Montenegro", why: "Bay of Kotor, dramatic coastlines, adventure", status: "been", emoji: "⛰", image: "https://source.unsplash.com/400x300/?montenegro,coast" },
-      { id: 17, place: "Istanbul", country: "Turkey", flag: "Turkey", why: "Blue Mosque, East meets West, bazaars", status: "been", emoji: "🕌", image: "https://source.unsplash.com/400x300/?istanbul,turkey" },
-      { id: 18, place: "Saint Petersburg", country: "Russia", flag: "Russia", why: "Winter Palace, canals, imperial grandeur", status: "been", emoji: "❄", image: "https://source.unsplash.com/400x300/?stpetersburg,russia" },
-
-      // BEEN - MIDDLE EAST & AFRICA
-      { id: 19, place: "Dubai", country: "UAE", flag: "UAE", why: "Burj Khalifa, ultra-modern, desert luxury", status: "been", emoji: "🌆", image: "https://source.unsplash.com/400x300/?dubai,uae" },
-      { id: 20, place: "Sharm el-Sheikh", country: "Egypt", flag: "Egypt", why: "Red Sea diving, coral reefs, paradise", status: "been", emoji: "🤿", image: "https://source.unsplash.com/400x300/?sharmelsheikh,beach" },
-      { id: 21, place: "Hurghada", country: "Egypt", flag: "Egypt", why: "Crystal waters, coral reef adventures", status: "been", emoji: "🪸", image: "https://source.unsplash.com/400x300/?hurghada,egypt" },
-      { id: 22, place: "Mauritius", country: "Mauritius", flag: "Mauritius", why: "Tropical island, turquoise lagoons", status: "been", emoji: "🏝", image: "https://source.unsplash.com/400x300/?mauritius,beach" },
-
-      // DREAMING
-      { id: 23, place: "Buenos Aires", country: "Argentina", flag: "Argentina", why: "Tango, asado, empanadas, alfajores, Obelisk", status: "dreaming", emoji: "🌍", image: "https://source.unsplash.com/400x300/?buenosaires,argentina" }
+      { id: 1, place: "New York", country: "United States", flag: "USA", why: "Times Square, iconic skyline, endless energy", status: "been", emoji: "🗽", image: "https://images.pexels.com/photos/1769274/pexels-photo-1769274.jpeg?auto=compress&cs=tinysrgb&w=500" },
+      { id: 2, place: "Boston", country: "United States", flag: "USA", why: "Historic landmarks, seafood, autumn leaves", status: "been", emoji: "🏛", image: "https://images.pexels.com/photos/3826517/pexels-photo-3826517.jpeg?auto=compress&cs=tinysrgb&w=500" },
+      { id: 3, place: "Miami", country: "United States", flag: "USA", why: "Art Deco, beaches, vibrant nightlife", status: "been", emoji: "🌴", image: "https://images.pexels.com/photos/449760/pexels-photo-449760.jpeg?auto=compress&cs=tinysrgb&w=500" },
+      { id: 4, place: "Fort Lauderdale", country: "United States", flag: "USA", why: "Beautiful beaches and waterfront charm", status: "been", emoji: "🏖", image: "https://images.pexels.com/photos/2398220/pexels-photo-2398220.jpeg?auto=compress&cs=tinysrgb&w=500" },
+      { id: 5, place: "Rhode Island", country: "United States", flag: "USA", why: "Newport Mansions, coastal beauty, harbor towns", status: "been", emoji: "⛵", image: "https://images.pexels.com/photos/3714897/pexels-photo-3714897.jpeg?auto=compress&cs=tinysrgb&w=500" },
+      { id: 6, place: "Rome", country: "Italy", flag: "Italy", why: "Colosseum, Vatican, timeless romance", status: "been", emoji: "🏛", image: "https://images.pexels.com/photos/321541/pexels-photo-321541.jpeg?auto=compress&cs=tinysrgb&w=500" },
+      { id: 7, place: "Florence", country: "Italy", flag: "Italy", why: "Renaissance art, Duomo, Tuscan wine", status: "been", emoji: "🎨", image: "https://images.pexels.com/photos/1390461/pexels-photo-1390461.jpeg?auto=compress&cs=tinysrgb&w=500" },
+      { id: 8, place: "Venice", country: "Italy", flag: "Italy", why: "Grand Canal, gondolas, magical waterways", status: "been", emoji: "🚤", image: "https://images.pexels.com/photos/532555/pexels-photo-532555.jpeg?auto=compress&cs=tinysrgb&w=500" },
+      { id: 9, place: "Naples", country: "Italy", flag: "Italy", why: "Vesuvius, pizza, Mediterranean vibes", status: "been", emoji: "🌋", image: "https://images.pexels.com/photos/3408357/pexels-photo-3408357.jpeg?auto=compress&cs=tinysrgb&w=500" },
+      { id: 10, place: "Rimini", country: "Italy", flag: "Italy", why: "Adriatic beaches, lively seaside culture", status: "been", emoji: "🏖", image: "https://images.pexels.com/photos/1909269/pexels-photo-1909269.jpeg?auto=compress&cs=tinysrgb&w=500" },
+      { id: 11, place: "Athens", country: "Greece", flag: "Greece", why: "Parthenon, ancient history, Mediterranean", status: "been", emoji: "⛩", image: "https://images.pexels.com/photos/1537904/pexels-photo-1537904.jpeg?auto=compress&cs=tinysrgb&w=500" },
+      { id: 12, place: "Santorini", country: "Greece", flag: "Greece", why: "White villages, sunsets, Aegean views", status: "been", emoji: "🌅", image: "https://images.pexels.com/photos/1619317/pexels-photo-1619317.jpeg?auto=compress&cs=tinysrgb&w=500" },
+      { id: 13, place: "Crete", country: "Greece", flag: "Greece", why: "Minoan ruins, Samaria Gorge, island paradise", status: "been", emoji: "🏝", image: "https://images.pexels.com/photos/1395967/pexels-photo-1395967.jpeg?auto=compress&cs=tinysrgb&w=500" },
+      { id: 14, place: "Vienna", country: "Austria", flag: "Austria", why: "Schonbrunn Palace, classical music, schnitzel", status: "been", emoji: "🎼", image: "https://images.pexels.com/photos/2529904/pexels-photo-2529904.jpeg?auto=compress&cs=tinysrgb&w=500" },
+      { id: 15, place: "San Marino", country: "San Marino", flag: "San Marino", why: "Medieval fortress surrounded by Italy", status: "been", emoji: "🏰", image: "https://images.pexels.com/photos/1838638/pexels-photo-1838638.jpeg?auto=compress&cs=tinysrgb&w=500" },
+      { id: 16, place: "Montenegro", country: "Montenegro", flag: "Montenegro", why: "Bay of Kotor, dramatic coastlines, adventure", status: "been", emoji: "⛰", image: "https://images.pexels.com/photos/2398220/pexels-photo-2398220.jpeg?auto=compress&cs=tinysrgb&w=500" },
+      { id: 17, place: "Istanbul", country: "Turkey", flag: "Turkey", why: "Blue Mosque, East meets West, bazaars", status: "been", emoji: "🕌", image: "https://images.pexels.com/photos/3532558/pexels-photo-3532558.jpeg?auto=compress&cs=tinysrgb&w=500" },
+      { id: 18, place: "Saint Petersburg", country: "Russia", flag: "Russia", why: "Winter Palace, canals, imperial grandeur", status: "been", emoji: "❄", image: "https://images.pexels.com/photos/2398220/pexels-photo-2398220.jpeg?auto=compress&cs=tinysrgb&w=500" },
+      { id: 19, place: "Dubai", country: "UAE", flag: "UAE", why: "Burj Khalifa, ultra-modern, desert luxury", status: "been", emoji: "🌆", image: "https://images.pexels.com/photos/1809242/pexels-photo-1809242.jpeg?auto=compress&cs=tinysrgb&w=500" },
+      { id: 20, place: "Sharm el-Sheikh", country: "Egypt", flag: "Egypt", why: "Red Sea diving, coral reefs, paradise", status: "been", emoji: "🤿", image: "https://images.pexels.com/photos/1761279/pexels-photo-1761279.jpeg?auto=compress&cs=tinysrgb&w=500" },
+      { id: 21, place: "Hurghada", country: "Egypt", flag: "Egypt", why: "Crystal waters, coral reef adventures", status: "been", emoji: "🪸", image: "https://images.pexels.com/photos/1559827/pexels-photo-1559827.jpeg?auto=compress&cs=tinysrgb&w=500" },
+      { id: 22, place: "Mauritius", country: "Mauritius", flag: "Mauritius", why: "Tropical island, turquoise lagoons", status: "been", emoji: "🏝", image: "https://images.pexels.com/photos/1619317/pexels-photo-1619317.jpeg?auto=compress&cs=tinysrgb&w=500" },
+      { id: 23, place: "Buenos Aires", country: "Argentina", flag: "Argentina", why: "Tango, asado, empanadas, alfajores, Obelisk", status: "dreaming", emoji: "🌍", image: "https://images.pexels.com/photos/2356059/pexels-photo-2356059.jpeg?auto=compress&cs=tinysrgb&w=500" }
     ];
 
     const grid = document.getElementById('grid');
@@ -272,7 +260,6 @@
       `).join('');
     }
 
-    // Event listeners for filters
     filterBtns.forEach(btn => {
       btn.addEventListener('click', (e) => {
         filterBtns.forEach(b => b.classList.remove('active'));
@@ -282,7 +269,6 @@
       });
     });
 
-    // Initial render
     renderCards();
   </script>
 </body>
