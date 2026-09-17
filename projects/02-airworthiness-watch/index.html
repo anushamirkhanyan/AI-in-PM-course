@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Airworthiness Watch</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(135deg, #003087 0%, #001a47 100%);
+      min-height: 100vh;
+      padding: 2rem;
+      color: #333;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      color: #FFD700;
+      margin-bottom: 3rem;
+      border-bottom: 3px solid #FFD700;
+      padding-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 900;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: rgba(255, 215, 0, 0.9);
+      font-weight: 300;
+    }
+
+    .filters {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.75rem 1.5rem;
+      border: 2px solid #FFD700;
+      background: rgba(255, 215, 0, 0.1);
+      color: #FFD700;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: #FFD700;
+      color: #003087;
+      transform: scale(1.05);
+    }
+
+    .briefing-board {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .section-header {
+      grid-column: 1 / -1;
+      font-size: 1.8rem;
+      color: #FFD700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #FFD700;
+    }
+
+    .entry-card {
+      background: white;
+      border-left: 5px solid #FFD700;
+      border-radius: 4px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .entry-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(255, 215, 0, 0.2);
+      border-left-color: #FFD700;
+    }
+
+    .entry-icon {
+      font-size: 28px;
+      margin-bottom: 0.5rem;
+    }
+
+    .entry-type {
+      display: inline-block;
+      padding: 0.4rem 0.8rem;
+      background: #003087;
+      color: #FFD700;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    .entry-title {
+      font-size: 1.3rem;
+      color: #003087;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .entry-aircraft {
+      color: #666;
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .entry-authority {
+      color: #999;
+      font-size: 0.85rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .entry-summary {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin-bottom: 0.8rem;
+    }
+
+    .entry-date {
+      color: #FFD700;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .history-rotator {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, #003087 0%, #001a47 100%);
+      border: 2px solid #FFD700;
+      border-radius: 4px;
+      padding: 2rem;
+      color: white;
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .history-label {
+      color: #FFD700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .history-text {
+      font-size: 1.4rem;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+
+    .history-date {
+      color: #FFD700;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 3rem;
+      color: #FFD700;
+      background: rgba(255, 215, 0, 0.05);
+      border: 1px dashed #FFD700;
+      border-radius: 4px;
+    }
+
+    footer {
+      text-align: center;
+      color: #FFD700;
+      margin-top: 3rem;
+      opacity: 0.8;
+      border-top: 1px solid #FFD700;
+      padding-top: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      .briefing-board {
+        grid-template-columns: 1fr;
+      }
+
+      .history-rotator {
+        grid-column: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>✈️ Airworthiness Watch</h1>
+      <p class="subtitle">Aviation Intelligence Briefing Board — ADs, Incidents & Regulations</p>
+    </header>
+
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="ad">ADs</button>
+      <button class="filter-btn" data-filter="incident">Incidents</button>
+      <button class="filter-btn" data-filter="regulation">Regulations</button>
+    </div>
+
+    <div class="briefing-board" id="board"></div>
+
+    <footer>
+      <p>Made with Claude Code for the AI in PM course — Aviation intelligence tracking & curation</p>
+    </footer>
+  </div>
+
+  <script>
+    const aviationHistory = [
+      { date: "1903-12-17", event: "Wright Brothers first powered flight at Kitty Hawk — 12 seconds, 120 feet" },
+      { date: "1939-08-27", event: "Heinkel He 178 first jet-powered flight" },
+      { date: "1947-10-14", event: "Chuck Yeager breaks the sound barrier in Bell X-1" },
+      { date: "1969-07-20", event: "Apollo 11 lands on the moon with Lunar Module pilot Buzz Aldrin" },
+      { date: "1978-09-01", event: "First uncrewed Atlantic crossing by Gossamer Albatross" },
+      { date: "1987-12-15", event: "Voyager completes first nonstop, unrefueled flight around the world" },
+      { date: "2004-10-04", event: "SpaceShipOne becomes first privately-built crewed spacecraft" },
+      { date: "2023-04-19", event: "First crewed high-altitude balloon flight reaches 135,889 feet" }
+    ];
+
+    const entries = [
+      { id: 1, type: "ad", icon: "📋", title: "CFM56-3C Engine Fan Blade Inspection", aircraft: "Boeing 737 Classic", authority: "FAA", date: "2025-02-15", summary: "Airworthiness Directive requires inspection of fan blade attachment pins within 500 flight hours or 18 months, whichever comes first. Effective immediately." },
+      { id: 2, type: "incident", icon: "⚠️", title: "Turkish Airlines Flight Incident Investigation", aircraft: "Boeing 787-9", authority: "NTSB", date: "2025-02-10", summary: "Landing gear extension issues reported during approach to Istanbul. Structural investigation underway. No injuries reported." },
+      { id: 3, type: "regulation", icon: "📜", title: "Part 21 Amendment — Certification Procedures", aircraft: "All GA Aircraft", authority: "FAA", date: "2025-02-05", summary: "New requirements for electric propulsion system certification. Effective immediately for new type certificate applications." },
+      { id: 4, type: "ad", icon: "📋", title: "Airbus A320 Fuselage Crack Prevention", aircraft: "Airbus A320 Family", authority: "EASA", date: "2025-02-01", summary: "Enhanced inspections and repair procedures for fuselage lap joint cracks. Mandatory compliance within 1000 flight hours." },
+      { id: 5, type: "incident", icon: "⚠️", title: "Cargo Aircraft Engine Failure Analysis", aircraft: "Boeing 747-8F", authority: "NTSB", date: "2025-01-28", summary: "Engine 3 failure during cruise near Denver. Safe landing achieved. Root cause analysis identifies turbine blade defect." },
+      { id: 6, type: "regulation", icon: "📜", title: "CS-23 Amendment — Commuter Aircraft Standards", aircraft: "Commuter Category", authority: "EASA", date: "2025-01-20", summary: "Updated performance and safety standards for aircraft with 19-37 seats. Comment period closed; final rule issued." }
+    ];
+
+    const board = document.getElementById('board');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    let currentFilter = 'all';
+    let currentHistoryIndex = 0;
+
+    function getTodayHistory() {
+      const today = new Date();
+      const month = String(today.getMonth() + 1).padStart(2, '0');
+      const day = String(today.getDate()).padStart(2, '0');
+      const todayMD = `${month}-${day}`;
+
+      const matches = aviationHistory.filter(h => h.date.includes(todayMD));
+      return matches.length > 0 ? matches[0] : aviationHistory[Math.floor(Math.random() * aviationHistory.length)];
+    }
+
+    function renderBoard(filter = 'all') {
+      const filtered = filter === 'all' ? entries : entries.filter(e => e.type === filter);
+
+      if (filtered.length === 0) {
+        board.innerHTML = '<div class="empty-state" style="grid-column: 1/-1;"><p>No entries in this category yet.</p></div>';
+        return;
+      }
+
+      let html = '';
+
+      const adEntries = filtered.filter(e => e.type === 'ad');
+      if (adEntries.length > 0 || filter === 'all') {
+        html += '<div class="section-header">📋 Airworthiness Directives</div>';
+        if (adEntries.length === 0 && filter !== 'all') {
+          html += '<div class="empty-state">No ADs at this time.</div>';
+        } else {
+          html += adEntries.map(e => `
+            <div class="entry-card">
+              <div class="entry-icon">${e.icon}</div>
+              <span class="entry-type">${e.type}</span>
+              <h3 class="entry-title">${e.title}</h3>
+              <p class="entry-aircraft">Aircraft: ${e.aircraft}</p>
+              <p class="entry-authority">Authority: ${e.authority}</p>
+              <p class="entry-summary">"${e.summary}"</p>
+              <p class="entry-date">📅 ${e.date}</p>
+            </div>
+          `).join('');
+        }
+      }
+
+      const incidentEntries = filtered.filter(e => e.type === 'incident');
+      if (incidentEntries.length > 0 || filter === 'all') {
+        html += '<div class="section-header">⚠️ Notable Incidents</div>';
+        if (incidentEntries.length === 0 && filter !== 'all') {
+          html += '<div class="empty-state">No incidents logged.</div>';
+        } else {
+          html += incidentEntries.map(e => `
+            <div class="entry-card">
+              <div class="entry-icon">${e.icon}</div>
+              <span class="entry-type">${e.type}</span>
+              <h3 class="entry-title">${e.title}</h3>
+              <p class="entry-aircraft">Aircraft: ${e.aircraft}</p>
+              <p class="entry-authority">Authority: ${e.authority}</p>
+              <p class="entry-summary">"${e.summary}"</p>
+              <p class="entry-date">📅 ${e.date}</p>
+            </div>
+          `).join('');
+        }
+      }
+
+      const regEntries = filtered.filter(e => e.type === 'regulation');
+      if (regEntries.length > 0 || filter === 'all') {
+        html += '<div class="section-header">📜 Regulation Watch</div>';
+        if (regEntries.length === 0 && filter !== 'all') {
+          html += '<div class="empty-state">No regulatory changes.</div>';
+        } else {
+          html += regEntries.map(e => `
+            <div class="entry-card">
+              <div class="entry-icon">${e.icon}</div>
+              <span class="entry-type">${e.type}</span>
+              <h3 class="entry-title">${e.title}</h3>
+              <p class="entry-aircraft">Category: ${e.aircraft}</p>
+              <p class="entry-authority">Authority: ${e.authority}</p>
+              <p class="entry-summary">"${e.summary}"</p>
+              <p class="entry-date">📅 ${e.date}</p>
+            </div>
+          `).join('');
+        }
+      }
+
+      const todayHistory = getTodayHistory();
+      html += `
+        <div class="history-rotator">
+          <div class="history-label">✨ On This Day in Aviation History</div>
+          <div class="history-text">${todayHistory.event}</div>
+          <div class="history-date">${todayHistory.date}</div>
+        </div>
+      `;
+
+      board.innerHTML = html;
+    }
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+        currentFilter = e.target.dataset.filter;
+        renderBoard(currentFilter);
+      });
+    });
+
+    renderBoard();
+  </script>
+</body>
+</html>
