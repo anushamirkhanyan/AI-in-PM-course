@@ -185,7 +185,7 @@
 <body>
   <div class="container">
     <header>
-      <h1>✈️ Travel Bucket List</h1>
+      <h1>Travel Bucket List</h1>
       <p class="subtitle">Places I want to visit, places I've been, and dreams to book</p>
     </header>
 
@@ -204,41 +204,41 @@
   </div>
 
   <script>
-    // Travel data with real images from Wikimedia Commons
+    // Travel data with iconic landmark images
     const travels = [
       // BEEN - USA
-      { id: 1, place: "Boston", country: "United States", flag: "🗽 USA", why: "Historic landmarks, seafood, and autumn leaves", status: "been", emoji: "🏛️", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Boston_downtown_at_dusk_MA.jpg/320px-Boston_downtown_at_dusk_MA.jpg" },
-      { id: 2, place: "Miami", country: "United States", flag: "🗽 USA", why: "Art Deco architecture, beaches, and vibrant nightlife", status: "been", emoji: "🌴", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/MiamiSkylineReflectionInWater.jpg/320px-MiamiSkylineReflectionInWater.jpg" },
-      { id: 3, place: "Fort Lauderdale", country: "United States", flag: "🗽 USA", why: "Beautiful beaches and waterfront charm", status: "been", emoji: "🏖️", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Fort_Lauderdale_Beach_and_Intracoastal.jpg/320px-Fort_Lauderdale_Beach_and_Intracoastal.jpg" },
-      { id: 4, place: "Rhode Island", country: "United States", flag: "🗽 USA", why: "Coastal beauty and charming harbor towns", status: "been", emoji: "⛵", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Newport_Cliff_Walk.jpg/320px-Newport_Cliff_Walk.jpg" },
+      { id: 1, place: "Boston", country: "United States", flag: "USA", why: "Quincy Market, historic landmarks, seafood, autumn leaves", status: "been", emoji: "🏛", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Quincy_Market%2C_Boston.jpg/400px-Quincy_Market%2C_Boston.jpg" },
+      { id: 2, place: "Miami", country: "United States", flag: "USA", why: "Art Deco architecture, South Beach, vibrant nightlife", status: "been", emoji: "🌴", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Miami_Art_Deco_Historic_District.jpg/400px-Miami_Art_Deco_Historic_District.jpg" },
+      { id: 3, place: "Fort Lauderdale", country: "United States", flag: "USA", why: "Beautiful beaches and waterfront charm", status: "been", emoji: "🏖", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Fort_Lauderdale_Intracoastal.jpg/400px-Fort_Lauderdale_Intracoastal.jpg" },
+      { id: 4, place: "Rhode Island", country: "United States", flag: "USA", why: "Newport Mansions, coastal beauty, harbor towns", status: "been", emoji: "❄", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/The_Breakers_Newport_Rhode_Island.jpg/400px-The_Breakers_Newport_Rhode_Island.jpg" },
 
       // BEEN - ITALY
-      { id: 5, place: "Rome", country: "Italy", flag: "🇮🇹 Italy", why: "Ancient ruins, Vatican, and timeless romance", status: "been", emoji: "🏛️", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Colosseum_in_Rome%2C_Italy_-_April_2007.jpg/320px-Colosseum_in_Rome%2C_Italy_-_April_2007.jpg" },
-      { id: 6, place: "Florence", country: "Italy", flag: "🇮🇹 Italy", why: "Renaissance art, Duomo, and Tuscan wine", status: "been", emoji: "🎨", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Florence_Duomo_2.jpg/320px-Florence_Duomo_2.jpg" },
-      { id: 7, place: "Venice", country: "Italy", flag: "🇮🇹 Italy", why: "Canals, gondolas, and magical waterways", status: "been", emoji: "🚤", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Grand_Canal%2C_Venice.jpg/320px-Grand_Canal%2C_Venice.jpg" },
-      { id: 8, place: "Naples", country: "Italy", flag: "🇮🇹 Italy", why: "Mount Vesuvius, pizza, and Mediterranean vibes", status: "been", emoji: "🌋", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Vesuvius_from_Naples.jpg/320px-Vesuvius_from_Naples.jpg" },
-      { id: 9, place: "Rimini", country: "Italy", flag: "🇮🇹 Italy", why: "Adriatic beaches and lively seaside culture", status: "been", emoji: "🏖️", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Rimini_beach.jpg/320px-Rimini_beach.jpg" },
+      { id: 5, place: "Rome", country: "Italy", flag: "Italy", why: "Ancient Colosseum, Vatican, timeless romance", status: "been", emoji: "🏛", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Colosseum_in_Rome%2C_Italy_-_April_2007.jpg/400px-Colosseum_in_Rome%2C_Italy_-_April_2007.jpg" },
+      { id: 6, place: "Florence", country: "Italy", flag: "Italy", why: "Ponte Vecchio, Renaissance art, Tuscan wine", status: "been", emoji: "🎨", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Ponte_Vecchio_Firenze.jpg/400px-Ponte_Vecchio_Firenze.jpg" },
+      { id: 7, place: "Venice", country: "Italy", flag: "Italy", why: "Grand Canal, gondolas, magical waterways", status: "been", emoji: "🚤", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Grand_Canal%2C_Venice.jpg/400px-Grand_Canal%2C_Venice.jpg" },
+      { id: 8, place: "Naples", country: "Italy", flag: "Italy", why: "Mount Vesuvius, pizza, Mediterranean vibes", status: "been", emoji: "🌋", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Vesuvius_from_Naples.jpg/400px-Vesuvius_from_Naples.jpg" },
+      { id: 9, place: "Rimini", country: "Italy", flag: "Italy", why: "Adriatic beaches, lively seaside culture", status: "been", emoji: "🏖", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Rimini_beach.jpg/400px-Rimini_beach.jpg" },
 
       // BEEN - GREECE
-      { id: 10, place: "Athens", country: "Greece", flag: "🇬🇷 Greece", why: "Acropolis, ancient history, and Mediterranean sun", status: "been", emoji: "⛩️", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Parthenon_from_west.jpg/320px-Parthenon_from_west.jpg" },
-      { id: 11, place: "Santorini", country: "Greece", flag: "🇬🇷 Greece", why: "White-washed villages, sunsets, and Aegean views", status: "been", emoji: "🌅", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Santorini_sunset.jpg/320px-Santorini_sunset.jpg" },
-      { id: 12, place: "Crete", country: "Greece", flag: "🇬🇷 Greece", why: "Minoan ruins, gorges, and island paradise", status: "been", emoji: "🏝️", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Samaria_Gorge%2C_Crete.jpg/320px-Samaria_Gorge%2C_Crete.jpg" },
+      { id: 10, place: "Athens", country: "Greece", flag: "Greece", why: "Acropolis Parthenon, ancient history, sun", status: "been", emoji: "⛩", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Parthenon_from_west.jpg/400px-Parthenon_from_west.jpg" },
+      { id: 11, place: "Santorini", country: "Greece", flag: "Greece", why: "White villages, sunsets, Aegean views", status: "been", emoji: "🌅", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Santorini_-_Oia.jpg/400px-Santorini_-_Oia.jpg" },
+      { id: 12, place: "Crete", country: "Greece", flag: "Greece", why: "Minoan ruins, Samaria Gorge, island paradise", status: "been", emoji: "🏝", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Samaria_Gorge%2C_Crete.jpg/400px-Samaria_Gorge%2C_Crete.jpg" },
 
       // BEEN - OTHER EUROPE
-      { id: 13, place: "Vienna", country: "Austria", flag: "🇦🇹 Austria", why: "Imperial palaces, classical music, and Wiener schnitzel", status: "been", emoji: "🎼", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Schonbrunn_Palace.jpg/320px-Schonbrunn_Palace.jpg" },
-      { id: 14, place: "San Marino", country: "San Marino", flag: "🇸🇲 San Marino", why: "Medieval fortress in the heart of Italy", status: "been", emoji: "🏰", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/San_Marino_3_Towers.jpg/320px-San_Marino_3_Towers.jpg" },
-      { id: 15, place: "Montenegro", country: "Montenegro", flag: "🇲🇪 Montenegro", why: "Dramatic coastlines and Adriatic adventure", status: "been", emoji: "⛰️", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Kotor_-_Bay_of_Kotor.jpg/320px-Kotor_-_Bay_of_Kotor.jpg" },
-      { id: 16, place: "Istanbul", country: "Turkey", flag: "🇹🇷 Turkey", why: "Where East meets West, bazaars and Blue Mosque", status: "been", emoji: "🕌", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Sultan_Ahmed_Mosque_%28Blue_Mosque%29.jpg/320px-Sultan_Ahmed_Mosque_%28Blue_Mosque%29.jpg" },
-      { id: 17, place: "Saint Petersburg", country: "Russia", flag: "🇷🇺 Russia", why: "Winter palaces, canals, and imperial grandeur", status: "been", emoji: "❄️", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Winter_Palace_in_Saint_Petersburg.jpg/320px-Winter_Palace_in_Saint_Petersburg.jpg" },
+      { id: 13, place: "Vienna", country: "Austria", flag: "Austria", why: "Schonbrunn Palace, classical music, schnitzel", status: "been", emoji: "🎼", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Schonbrunn_Palace.jpg/400px-Schonbrunn_Palace.jpg" },
+      { id: 14, place: "San Marino", country: "San Marino", flag: "San Marino", why: "Medieval 3 Towers fortress in Italy", status: "been", emoji: "🏰", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/San_Marino_3_Towers.jpg/400px-San_Marino_3_Towers.jpg" },
+      { id: 15, place: "Montenegro", country: "Montenegro", flag: "Montenegro", why: "Bay of Kotor, dramatic coastlines, adventure", status: "been", emoji: "⛰", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Kotor_-_Bay_of_Kotor.jpg/400px-Kotor_-_Bay_of_Kotor.jpg" },
+      { id: 16, place: "Istanbul", country: "Turkey", flag: "Turkey", why: "Blue Mosque, East meets West, bazaars", status: "been", emoji: "🕌", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Sultan_Ahmed_Mosque_%28Blue_Mosque%29.jpg/400px-Sultan_Ahmed_Mosque_%28Blue_Mosque%29.jpg" },
+      { id: 17, place: "Saint Petersburg", country: "Russia", flag: "Russia", why: "Winter Palace, canals, imperial grandeur", status: "been", emoji: "❄", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Winter_Palace_in_Saint_Petersburg.jpg/400px-Winter_Palace_in_Saint_Petersburg.jpg" },
 
       // BEEN - MIDDLE EAST & AFRICA
-      { id: 18, place: "Dubai", country: "UAE", flag: "🇦🇪 UAE", why: "Ultra-modern architecture and desert luxury", status: "been", emoji: "🌆", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Burj_Khalifa.jpg/320px-Burj_Khalifa.jpg" },
-      { id: 19, place: "Sharm el-Sheikh", country: "Egypt", flag: "🇪🇬 Egypt", why: "Red Sea diving and resort paradise", status: "been", emoji: "🤿", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Coral_reef.jpg/320px-Coral_reef.jpg" },
-      { id: 20, place: "Hurghada", country: "Egypt", flag: "🇪🇬 Egypt", why: "Crystal waters and coral reef adventures", status: "been", emoji: "🪸", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Hurghada_beach.jpg/320px-Hurghada_beach.jpg" },
-      { id: 21, place: "Mauritius", country: "Mauritius", flag: "🇲🇺 Mauritius", why: "Tropical island paradise with turquoise lagoons", status: "been", emoji: "🏝️", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Mauritius_lagoon.jpg/320px-Mauritius_lagoon.jpg" },
+      { id: 18, place: "Dubai", country: "UAE", flag: "UAE", why: "Burj Khalifa, ultra-modern architecture, desert", status: "been", emoji: "🌆", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Burj_Khalifa.jpg/400px-Burj_Khalifa.jpg" },
+      { id: 19, place: "Sharm el-Sheikh", country: "Egypt", flag: "Egypt", why: "Red Sea diving, coral reefs, resort paradise", status: "been", emoji: "🤿", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Coral_reef.jpg/400px-Coral_reef.jpg" },
+      { id: 20, place: "Hurghada", country: "Egypt", flag: "Egypt", why: "Crystal waters, coral reef adventures", status: "been", emoji: "🪸", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Hurghada_beach.jpg/400px-Hurghada_beach.jpg" },
+      { id: 21, place: "Mauritius", country: "Mauritius", flag: "Mauritius", why: "Tropical island, turquoise lagoons paradise", status: "been", emoji: "🏝", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Mauritius_lagoon.jpg/400px-Mauritius_lagoon.jpg" },
 
       // DREAMING
-      { id: 22, place: "Buenos Aires", country: "Argentina", flag: "🇦🇷 Argentina", why: "Usuaia at the end of the world, asado, empanadas and alfajores", status: "dreaming", emoji: "🌍", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Teatro_Colon_Buenos_Aires.jpg/320px-Teatro_Colon_Buenos_Aires.jpg" }
+      { id: 22, place: "Buenos Aires", country: "Argentina", flag: "Argentina", why: "Obelisk, Teatro Colon, asado, alfajores", status: "dreaming", emoji: "🌍", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Obelisco_%28Buenos_Aires%29.jpg/400px-Obelisco_%28Buenos_Aires%29.jpg" }
     ];
 
     const grid = document.getElementById('grid');
